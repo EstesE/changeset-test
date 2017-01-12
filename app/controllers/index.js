@@ -1,7 +1,8 @@
+/* eslint-disable no-debugger */
 import Ember from 'ember';
 
-const { Controller, get } = Ember;
-const { keys } = Object;
+const { Controller/*, get*/ } = Ember;
+// const { keys } = Object;
 
 export default Controller.extend({
   actions: {
@@ -31,10 +32,11 @@ export default Controller.extend({
     },
 
     validate(/*{ key, newValue, oldValue, changes, content }*/) {
+      debugger;
       // lookup a validator function on your favorite validation library
       // should return a Boolean
       return true;
-    },
+    }
 
     // validateProperty(changeset, property) {
     //   console.log('validateProperty');

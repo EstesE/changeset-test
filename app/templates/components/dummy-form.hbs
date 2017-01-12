@@ -31,11 +31,15 @@
     {{input type="text" value=changeset.contact.phone}} model value: {{model.contact.phone}}
     <div style="position: absolute; color: red;">
         <small>
-            {{#each (get (get changeset '_errors.contact.phone') 'validation') as |message index|}}
-                {{#if (eq index 0)}}
-                    {{message}}
-                {{/if}}
-            {{/each}}
+            {{#each-in (get changeset '_errors') as |error value|}}
+              {{#if (eq error 'contact.phone')}}
+                {{#each (get value 'validation') as |message index|}}
+                  {{#if (eq index 0)}}
+                      {{message}}
+                  {{/if}}
+                {{/each}}
+              {{/if}}
+            {{/each-in}}
         </small>
     </div>            
     {{!--{{input value=changeset.contact.phone}}
@@ -45,11 +49,15 @@
     {{input type="text" value=changeset.contact.email}} <b>model value:</b> <span style='color: red;'>{{model.contact.email}}</span> | <b>changeset value:</b> <span style='color: blue;'>{{changeset.contact.email}}</span>
     <div style="position: absolute; color: red;">
         <small>
-            {{#each (get (get changeset '_errors.contact.email') 'validation') as |message index|}}
-                {{#if (eq index 0)}}
-                    {{message}}
-                {{/if}}
-            {{/each}}
+            {{#each-in (get changeset '_errors') as |error value|}}
+              {{#if (eq error 'contact.email')}}
+                {{#each (get value 'validation') as |message index|}}
+                  {{#if (eq index 0)}}
+                      {{message}}
+                  {{/if}}
+                {{/each}}
+              {{/if}}
+            {{/each-in}}
         </small>
     </div>
     {{!--{{input value=changeset.contact.email}}

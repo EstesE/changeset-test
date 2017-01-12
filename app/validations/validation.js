@@ -5,7 +5,7 @@ import {
 
 export default {
   firstName: [
-    validatePresence({ presence: true, message: '{description} is required' }),
+    validatePresence({ presence: true, message: '{description} is required' })
   ],
   lastName: [
     validatePresence({ presence: true, message: '{description} is required'})
@@ -15,8 +15,8 @@ export default {
   ],
   contact: {
     email: [
-    validatePresence({ presence: true, message: '{description} is required'})
-  ]
+      validatePresence({ presence: true, message: '{description} is required'})
+    ]
   },
   'contact.email': [
     validatePresence({ presence: true, message: '{description} is required'})
