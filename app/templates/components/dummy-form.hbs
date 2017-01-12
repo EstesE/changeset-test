@@ -1,0 +1,64 @@
+<form>
+  <p>
+    {{input type="text" value=changeset.firstName}} <b>model value:</b> <span style='color: red;'>{{model.firstName}}</span> | <b>changeset value:</b> <span style='color: blue;'>{{changeset.firstName}}</span>
+    <div style="position: absolute; color: red;">
+        <small>
+            {{#each (get (get changeset '_errors.firstName') 'validation') as |message index|}}
+                {{#if (eq index 0)}}
+                    {{message}}
+                {{/if}}
+            {{/each}}
+        </small>
+    </div>
+    {{!--{{input value=changeset.firstName}}--}}
+    {{!--{{model.firstName}}--}}
+  </p>
+  <p>
+    {{input type="text" value=changeset.lastName}} model value: {{model.lastName}}
+    <div style="position: absolute; color: red;">
+        <small>
+            {{#each (get (get changeset '_errors.lastName') 'validation') as |message index|}}
+                {{#if (eq index 0)}}
+                    {{message}}
+                {{/if}}
+            {{/each}}
+        </small>
+    </div>      
+    {{!--{{input value=changeset.lastName}}
+    {{model.lastName}}--}}
+  </p>
+  <p>
+    {{input type="text" value=changeset.contact.phone}} model value: {{model.contact.phone}}
+    <div style="position: absolute; color: red;">
+        <small>
+            {{#each (get (get changeset '_errors.contact.phone') 'validation') as |message index|}}
+                {{#if (eq index 0)}}
+                    {{message}}
+                {{/if}}
+            {{/each}}
+        </small>
+    </div>            
+    {{!--{{input value=changeset.contact.phone}}
+    {{model.contact.phone}}--}}
+  </p>
+  <p>
+    {{input type="text" value=changeset.contact.email}} <b>model value:</b> <span style='color: red;'>{{model.contact.email}}</span> | <b>changeset value:</b> <span style='color: blue;'>{{changeset.contact.email}}</span>
+    <div style="position: absolute; color: red;">
+        <small>
+            {{#each (get (get changeset '_errors.contact.email') 'validation') as |message index|}}
+                {{#if (eq index 0)}}
+                    {{message}}
+                {{/if}}
+            {{/each}}
+        </small>
+    </div>
+    {{!--{{input value=changeset.contact.email}}
+    {{model.contact.email}}--}}
+  </p>
+  {{#each changeset.aliases as |alias|}}
+    {{input value=alias.name}}
+  {{/each}}
+
+  <button {{action submit changeset}}>Submit</button>
+  <button {{action rollback changeset}}>Cancel</button>
+</form>
